@@ -1,6 +1,8 @@
 ﻿Public Class frm_salida
     Dim id_salida As Integer
     Dim cantidad_detalle As Decimal = 0
+    Dim id_articulo As Integer
+
     Private Sub frm_salida_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DSControl.INVE_salidadetalle' Puede moverla o quitarla según sea necesario.
         Me.INVE_salidadetalleTableAdapter.Fill(Me.DSControl.INVE_salidadetalle)
@@ -116,8 +118,10 @@
 
 
     Private Sub cmb_articulo_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_articulo.SelectedValueChanged
+
         If cmb_articulo.SelectedValue > 0 Then
-            txt_unidades.Text = Me.INVE_entradas_salidasTableAdapter.existencia(cmb_articulo.SelectedValue)
+            id_articulo = cmb_articulo.SelectedValue
+            txt_unidades.Text = Me.INVE_entradas_salidasTableAdapter.existencia(id_articulo)
             '  Me.INVE_entradas_salidasTableAdapter.FillByEXISTENCIA(DSControl._INVE_entradas_salidas, cmb_articulo.SelectedValue)
 
         End If

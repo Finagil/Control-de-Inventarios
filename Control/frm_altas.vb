@@ -24,7 +24,7 @@
     Private Sub bt_guardar_Click(sender As Object, e As EventArgs) Handles bt_guardar.Click
         Dim cantidad As Decimal = CDec(Val(txt_cant.Text))
         Dim costo As Decimal = CDec(Val(txt_costo.Text))
-        Me.INVE_entradas_salidasTableAdapter.InsertEntradas(cantidad, cmb_articulo.SelectedValue, dt_fecha.Text, cmb_unidad.SelectedValue, costo, cmb_almacen.SelectedValue, True)
+        Me.INVE_entradas_salidasTableAdapter.InsertEntradas(cantidad, cmb_articulo.SelectedValue, dt_fecha.Text, cmb_unidad.SelectedValue, costo, cmb_almacen.SelectedValue, True, txt_prov.Text, txt_fact.Text)
         MessageBox.Show("Entrada del artículo Guardado", "CONTROL DE INVENTARIOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Me.VW_INV_ALTASTableAdapter.Fill(Me.DSControl.VW_INV_ALTAS)
         Me.Vw_inv_articulo_existenciasTableAdapter.Fill(Me.DSControl1.vw_inv_articulo_existencias)

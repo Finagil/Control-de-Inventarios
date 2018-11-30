@@ -67,6 +67,10 @@ Partial Class frm_altas
         Me.DSControl1 = New Control_de_Inventarios.DSControl()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txt_fact = New System.Windows.Forms.TextBox()
+        Me.txt_prov = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.INVEarticulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSControlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,7 +130,7 @@ Partial Class frm_altas
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 96)
+        Me.Label2.Location = New System.Drawing.Point(6, 131)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 13)
         Me.Label2.TabIndex = 2
@@ -138,9 +142,9 @@ Partial Class frm_altas
         Me.cmb_unidad.DisplayMember = "descr"
         Me.cmb_unidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_unidad.FormattingEnabled = True
-        Me.cmb_unidad.Location = New System.Drawing.Point(60, 93)
+        Me.cmb_unidad.Location = New System.Drawing.Point(60, 123)
         Me.cmb_unidad.Name = "cmb_unidad"
-        Me.cmb_unidad.Size = New System.Drawing.Size(85, 21)
+        Me.cmb_unidad.Size = New System.Drawing.Size(109, 21)
         Me.cmb_unidad.TabIndex = 3
         Me.cmb_unidad.ValueMember = "id_unidad"
         '
@@ -160,7 +164,7 @@ Partial Class frm_altas
         '
         'txt_cant
         '
-        Me.txt_cant.Location = New System.Drawing.Point(61, 124)
+        Me.txt_cant.Location = New System.Drawing.Point(270, 124)
         Me.txt_cant.Name = "txt_cant"
         Me.txt_cant.Size = New System.Drawing.Size(79, 20)
         Me.txt_cant.TabIndex = 8
@@ -168,7 +172,7 @@ Partial Class frm_altas
         'txt_cantidad
         '
         Me.txt_cantidad.AutoSize = True
-        Me.txt_cantidad.Location = New System.Drawing.Point(6, 124)
+        Me.txt_cantidad.Location = New System.Drawing.Point(215, 127)
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(49, 13)
         Me.txt_cantidad.TabIndex = 9
@@ -177,7 +181,7 @@ Partial Class frm_altas
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(163, 124)
+        Me.Label5.Location = New System.Drawing.Point(369, 127)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 13)
         Me.Label5.TabIndex = 10
@@ -185,7 +189,7 @@ Partial Class frm_altas
         '
         'txt_costo
         '
-        Me.txt_costo.Location = New System.Drawing.Point(203, 121)
+        Me.txt_costo.Location = New System.Drawing.Point(421, 124)
         Me.txt_costo.Name = "txt_costo"
         Me.txt_costo.Size = New System.Drawing.Size(79, 20)
         Me.txt_costo.TabIndex = 11
@@ -222,7 +226,7 @@ Partial Class frm_altas
         '
         'bt_guardar
         '
-        Me.bt_guardar.Location = New System.Drawing.Point(207, 164)
+        Me.bt_guardar.Location = New System.Drawing.Point(584, 127)
         Me.bt_guardar.Name = "bt_guardar"
         Me.bt_guardar.Size = New System.Drawing.Size(75, 23)
         Me.bt_guardar.TabIndex = 15
@@ -242,7 +246,7 @@ Partial Class frm_altas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(335, 19)
+        Me.Label3.Location = New System.Drawing.Point(778, 23)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 16
@@ -251,7 +255,7 @@ Partial Class frm_altas
         'dt_fecha
         '
         Me.dt_fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dt_fecha.Location = New System.Drawing.Point(378, 13)
+        Me.dt_fecha.Location = New System.Drawing.Point(821, 16)
         Me.dt_fecha.Name = "dt_fecha"
         Me.dt_fecha.Size = New System.Drawing.Size(108, 20)
         Me.dt_fecha.TabIndex = 17
@@ -324,6 +328,10 @@ Partial Class frm_altas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.txt_fact)
+        Me.GroupBox1.Controls.Add(Me.txt_prov)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.cmb_almacen)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -337,7 +345,7 @@ Partial Class frm_altas
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Location = New System.Drawing.Point(22, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(307, 193)
+        Me.GroupBox1.Size = New System.Drawing.Size(700, 158)
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Alta de Productos"
@@ -407,6 +415,38 @@ Partial Class frm_altas
         Me.Label7.Size = New System.Drawing.Size(143, 13)
         Me.Label7.TabIndex = 34
         Me.Label7.Text = "REGISTRO DE ENTRADAS"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 97)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(56, 13)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Proveedor"
+        '
+        'txt_fact
+        '
+        Me.txt_fact.Location = New System.Drawing.Point(421, 94)
+        Me.txt_fact.Name = "txt_fact"
+        Me.txt_fact.Size = New System.Drawing.Size(79, 20)
+        Me.txt_fact.TabIndex = 19
+        '
+        'txt_prov
+        '
+        Me.txt_prov.Location = New System.Drawing.Point(61, 94)
+        Me.txt_prov.Name = "txt_prov"
+        Me.txt_prov.Size = New System.Drawing.Size(288, 20)
+        Me.txt_prov.TabIndex = 16
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(369, 97)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(43, 13)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Factura"
         '
         'frm_altas
         '
@@ -487,4 +527,8 @@ Partial Class frm_altas
     Friend WithEvents ExistenciaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Label4 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txt_fact As TextBox
+    Friend WithEvents txt_prov As TextBox
+    Friend WithEvents Label9 As Label
 End Class
