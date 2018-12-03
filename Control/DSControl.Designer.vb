@@ -4299,6 +4299,10 @@ Partial Public Class DSControl
         
         Private columnALMACEN As Global.System.Data.DataColumn
         
+        Private columnproveedor As Global.System.Data.DataColumn
+        
+        Private columnfactura As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4383,6 +4387,22 @@ Partial Public Class DSControl
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property proveedorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproveedor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property facturaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfactura
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4419,9 +4439,9 @@ Partial Public Class DSControl
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddVW_INV_ALTASRow(ByVal articulo As String, ByVal cantidad As Decimal, ByVal fecha As Date, ByVal costo As Decimal, ByVal id_es As Integer, ByVal ALMACEN As String) As VW_INV_ALTASRow
+        Public Overloads Function AddVW_INV_ALTASRow(ByVal articulo As String, ByVal cantidad As Decimal, ByVal fecha As Date, ByVal costo As Decimal, ByVal id_es As Integer, ByVal ALMACEN As String, ByVal proveedor As String, ByVal factura As String) As VW_INV_ALTASRow
             Dim rowVW_INV_ALTASRow As VW_INV_ALTASRow = CType(Me.NewRow,VW_INV_ALTASRow)
-            Dim columnValuesArray() As Object = New Object() {articulo, cantidad, fecha, costo, id_es, ALMACEN}
+            Dim columnValuesArray() As Object = New Object() {articulo, cantidad, fecha, costo, id_es, ALMACEN, proveedor, factura}
             rowVW_INV_ALTASRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVW_INV_ALTASRow)
             Return rowVW_INV_ALTASRow
@@ -4456,6 +4476,8 @@ Partial Public Class DSControl
             Me.columncosto = MyBase.Columns("costo")
             Me.columnid_es = MyBase.Columns("id_es")
             Me.columnALMACEN = MyBase.Columns("ALMACEN")
+            Me.columnproveedor = MyBase.Columns("proveedor")
+            Me.columnfactura = MyBase.Columns("factura")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4473,6 +4495,10 @@ Partial Public Class DSControl
             MyBase.Columns.Add(Me.columnid_es)
             Me.columnALMACEN = New Global.System.Data.DataColumn("ALMACEN", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnALMACEN)
+            Me.columnproveedor = New Global.System.Data.DataColumn("proveedor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproveedor)
+            Me.columnfactura = New Global.System.Data.DataColumn("factura", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfactura)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_es}, true))
             Me.columnarticulo.AllowDBNull = false
             Me.columnarticulo.MaxLength = 250
@@ -4481,6 +4507,8 @@ Partial Public Class DSControl
             Me.columnid_es.Unique = true
             Me.columnALMACEN.AllowDBNull = false
             Me.columnALMACEN.MaxLength = 100
+            Me.columnproveedor.MaxLength = 250
+            Me.columnfactura.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7540,6 +7568,36 @@ Partial Public Class DSControl
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property proveedor() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVW_INV_ALTAS.proveedorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'proveedor' de la tabla 'VW_INV_ALTAS' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVW_INV_ALTAS.proveedorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property factura() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVW_INV_ALTAS.facturaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'factura' de la tabla 'VW_INV_ALTAS' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVW_INV_ALTAS.facturaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsfechaNull() As Boolean
             Return Me.IsNull(Me.tableVW_INV_ALTAS.fechaColumn)
         End Function
@@ -7560,6 +7618,30 @@ Partial Public Class DSControl
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetcostoNull()
             Me(Me.tableVW_INV_ALTAS.costoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsproveedorNull() As Boolean
+            Return Me.IsNull(Me.tableVW_INV_ALTAS.proveedorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetproveedorNull()
+            Me(Me.tableVW_INV_ALTAS.proveedorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfacturaNull() As Boolean
+            Return Me.IsNull(Me.tableVW_INV_ALTAS.facturaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetfacturaNull()
+            Me(Me.tableVW_INV_ALTAS.facturaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -12169,6 +12251,8 @@ Namespace DSControlTableAdapters
             tableMapping.ColumnMappings.Add("costo", "costo")
             tableMapping.ColumnMappings.Add("id_es", "id_es")
             tableMapping.ColumnMappings.Add("ALMACEN", "ALMACEN")
+            tableMapping.ColumnMappings.Add("proveedor", "proveedor")
+            tableMapping.ColumnMappings.Add("factura", "factura")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -12185,8 +12269,8 @@ Namespace DSControlTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        articulo, cantidad, fecha, costo, ALMACEN, id_es"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V"& _ 
-                "W_INV_ALTAS"
+            Me._commandCollection(0).CommandText = "SELECT        articulo, cantidad, fecha, costo, ALMACEN, id_es, proveedor, factur"& _ 
+                "a"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            VW_INV_ALTAS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

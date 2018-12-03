@@ -48,15 +48,13 @@ Partial Class frm_altas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dt_fecha = New System.Windows.Forms.DateTimePicker()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ArticuloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ALMACEN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CostoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VWINVALTASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VW_INV_ALTASTableAdapter = New Control_de_Inventarios.DSControlTableAdapters.VW_INV_ALTASTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txt_fact = New System.Windows.Forms.TextBox()
+        Me.txt_prov = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.VwinvarticuloexistenciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Vw_inv_articulo_existenciasTableAdapter = New Control_de_Inventarios.DSControlTableAdapters.vw_inv_articulo_existenciasTableAdapter()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
@@ -67,10 +65,14 @@ Partial Class frm_altas
         Me.DSControl1 = New Control_de_Inventarios.DSControl()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txt_fact = New System.Windows.Forms.TextBox()
-        Me.txt_prov = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.ArticuloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ALMACEN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CostoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.factura = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.INVEarticulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSControlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,56 +268,13 @@ Partial Class frm_altas
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ArticuloDataGridViewTextBoxColumn, Me.ALMACEN, Me.CantidadDataGridViewTextBoxColumn, Me.FechaDataGridViewTextBoxColumn, Me.CostoDataGridViewTextBoxColumn, Me.IdesDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ArticuloDataGridViewTextBoxColumn, Me.ALMACEN, Me.CantidadDataGridViewTextBoxColumn, Me.FechaDataGridViewTextBoxColumn, Me.CostoDataGridViewTextBoxColumn, Me.IdesDataGridViewTextBoxColumn, Me.proveedor, Me.factura})
         Me.DataGridView1.DataSource = Me.VWINVALTASBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(22, 237)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(549, 222)
+        Me.DataGridView1.Size = New System.Drawing.Size(708, 222)
         Me.DataGridView1.TabIndex = 31
-        '
-        'ArticuloDataGridViewTextBoxColumn
-        '
-        Me.ArticuloDataGridViewTextBoxColumn.DataPropertyName = "articulo"
-        Me.ArticuloDataGridViewTextBoxColumn.HeaderText = "ARTICULO"
-        Me.ArticuloDataGridViewTextBoxColumn.Name = "ArticuloDataGridViewTextBoxColumn"
-        Me.ArticuloDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ALMACEN
-        '
-        Me.ALMACEN.DataPropertyName = "ALMACEN"
-        Me.ALMACEN.HeaderText = "ALMACEN"
-        Me.ALMACEN.Name = "ALMACEN"
-        Me.ALMACEN.ReadOnly = True
-        '
-        'CantidadDataGridViewTextBoxColumn
-        '
-        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "CANTIDAD"
-        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
-        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FechaDataGridViewTextBoxColumn
-        '
-        Me.FechaDataGridViewTextBoxColumn.DataPropertyName = "fecha"
-        Me.FechaDataGridViewTextBoxColumn.HeaderText = "FECHA"
-        Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
-        Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CostoDataGridViewTextBoxColumn
-        '
-        Me.CostoDataGridViewTextBoxColumn.DataPropertyName = "costo"
-        Me.CostoDataGridViewTextBoxColumn.HeaderText = "COSTO"
-        Me.CostoDataGridViewTextBoxColumn.Name = "CostoDataGridViewTextBoxColumn"
-        Me.CostoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IdesDataGridViewTextBoxColumn
-        '
-        Me.IdesDataGridViewTextBoxColumn.DataPropertyName = "id_es"
-        Me.IdesDataGridViewTextBoxColumn.HeaderText = "id_es"
-        Me.IdesDataGridViewTextBoxColumn.Name = "IdesDataGridViewTextBoxColumn"
-        Me.IdesDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdesDataGridViewTextBoxColumn.Visible = False
         '
         'VWINVALTASBindingSource
         '
@@ -350,6 +309,38 @@ Partial Class frm_altas
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Alta de Productos"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 97)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(56, 13)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Proveedor"
+        '
+        'txt_fact
+        '
+        Me.txt_fact.Location = New System.Drawing.Point(421, 94)
+        Me.txt_fact.Name = "txt_fact"
+        Me.txt_fact.Size = New System.Drawing.Size(79, 20)
+        Me.txt_fact.TabIndex = 19
+        '
+        'txt_prov
+        '
+        Me.txt_prov.Location = New System.Drawing.Point(61, 94)
+        Me.txt_prov.Name = "txt_prov"
+        Me.txt_prov.Size = New System.Drawing.Size(288, 20)
+        Me.txt_prov.TabIndex = 16
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(369, 97)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(43, 13)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Factura"
+        '
         'VwinvarticuloexistenciasBindingSource
         '
         Me.VwinvarticuloexistenciasBindingSource.DataMember = "vw_inv_articulo_existencias"
@@ -365,9 +356,9 @@ Partial Class frm_altas
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoDataGridViewTextBoxColumn, Me.AlmacenDataGridViewTextBoxColumn, Me.ExistenciaDataGridViewTextBoxColumn})
         Me.DataGridView2.DataSource = Me.VwinvarticuloexistenciasBindingSource1
-        Me.DataGridView2.Location = New System.Drawing.Point(583, 237)
+        Me.DataGridView2.Location = New System.Drawing.Point(736, 237)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(360, 222)
+        Me.DataGridView2.Size = New System.Drawing.Size(350, 222)
         Me.DataGridView2.TabIndex = 33
         '
         'ProductoDataGridViewTextBoxColumn
@@ -416,43 +407,71 @@ Partial Class frm_altas
         Me.Label7.TabIndex = 34
         Me.Label7.Text = "REGISTRO DE ENTRADAS"
         '
-        'Label8
+        'ArticuloDataGridViewTextBoxColumn
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 97)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 13)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "Proveedor"
+        Me.ArticuloDataGridViewTextBoxColumn.DataPropertyName = "articulo"
+        Me.ArticuloDataGridViewTextBoxColumn.HeaderText = "ARTICULO"
+        Me.ArticuloDataGridViewTextBoxColumn.Name = "ArticuloDataGridViewTextBoxColumn"
+        Me.ArticuloDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'txt_fact
+        'ALMACEN
         '
-        Me.txt_fact.Location = New System.Drawing.Point(421, 94)
-        Me.txt_fact.Name = "txt_fact"
-        Me.txt_fact.Size = New System.Drawing.Size(79, 20)
-        Me.txt_fact.TabIndex = 19
+        Me.ALMACEN.DataPropertyName = "ALMACEN"
+        Me.ALMACEN.HeaderText = "ALMACEN"
+        Me.ALMACEN.Name = "ALMACEN"
+        Me.ALMACEN.ReadOnly = True
+        Me.ALMACEN.Width = 60
         '
-        'txt_prov
+        'CantidadDataGridViewTextBoxColumn
         '
-        Me.txt_prov.Location = New System.Drawing.Point(61, 94)
-        Me.txt_prov.Name = "txt_prov"
-        Me.txt_prov.Size = New System.Drawing.Size(288, 20)
-        Me.txt_prov.TabIndex = 16
+        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "CANT."
+        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
+        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CantidadDataGridViewTextBoxColumn.Width = 60
         '
-        'Label9
+        'FechaDataGridViewTextBoxColumn
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(369, 97)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(43, 13)
-        Me.Label9.TabIndex = 18
-        Me.Label9.Text = "Factura"
+        Me.FechaDataGridViewTextBoxColumn.DataPropertyName = "fecha"
+        Me.FechaDataGridViewTextBoxColumn.HeaderText = "FECHA"
+        Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
+        Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CostoDataGridViewTextBoxColumn
+        '
+        Me.CostoDataGridViewTextBoxColumn.DataPropertyName = "costo"
+        Me.CostoDataGridViewTextBoxColumn.HeaderText = "COSTO"
+        Me.CostoDataGridViewTextBoxColumn.Name = "CostoDataGridViewTextBoxColumn"
+        Me.CostoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'IdesDataGridViewTextBoxColumn
+        '
+        Me.IdesDataGridViewTextBoxColumn.DataPropertyName = "id_es"
+        Me.IdesDataGridViewTextBoxColumn.HeaderText = "id_es"
+        Me.IdesDataGridViewTextBoxColumn.Name = "IdesDataGridViewTextBoxColumn"
+        Me.IdesDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdesDataGridViewTextBoxColumn.Visible = False
+        '
+        'proveedor
+        '
+        Me.proveedor.DataPropertyName = "proveedor"
+        Me.proveedor.HeaderText = "PROVEEDOR"
+        Me.proveedor.Name = "proveedor"
+        Me.proveedor.ReadOnly = True
+        Me.proveedor.Width = 130
+        '
+        'factura
+        '
+        Me.factura.DataPropertyName = "factura"
+        Me.factura.HeaderText = "FACTURA"
+        Me.factura.Name = "factura"
+        Me.factura.ReadOnly = True
         '
         'frm_altas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(955, 472)
+        Me.ClientSize = New System.Drawing.Size(1117, 472)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.DataGridView2)
@@ -511,12 +530,6 @@ Partial Class frm_altas
     Friend WithEvents VW_INV_ALTASTableAdapter As DSControlTableAdapters.VW_INV_ALTASTableAdapter
     Friend WithEvents DescrDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents ArticuloDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ALMACEN As DataGridViewTextBoxColumn
-    Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CostoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IdesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents VwinvarticuloexistenciasBindingSource As BindingSource
     Friend WithEvents Vw_inv_articulo_existenciasTableAdapter As DSControlTableAdapters.vw_inv_articulo_existenciasTableAdapter
     Friend WithEvents DataGridView2 As DataGridView
@@ -531,4 +544,12 @@ Partial Class frm_altas
     Friend WithEvents txt_fact As TextBox
     Friend WithEvents txt_prov As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents ArticuloDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ALMACEN As DataGridViewTextBoxColumn
+    Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CostoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IdesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents proveedor As DataGridViewTextBoxColumn
+    Friend WithEvents factura As DataGridViewTextBoxColumn
 End Class

@@ -733,7 +733,7 @@ WHERE        (id_articulo = @id_articulo)</CommandText>
               <DbSource ConnectionRef="ProductionConnectionString (MySettings)" DbObjectName="Production.dbo.VW_INV_ALTAS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        articulo, cantidad, fecha, costo, ALMACEN, id_es
+                    <CommandText>SELECT        articulo, cantidad, fecha, costo, ALMACEN, id_es, proveedor, factura
 FROM            VW_INV_ALTAS</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -747,6 +747,8 @@ FROM            VW_INV_ALTAS</CommandText>
               <Mapping SourceColumn="costo" DataSetColumn="costo" />
               <Mapping SourceColumn="id_es" DataSetColumn="id_es" />
               <Mapping SourceColumn="ALMACEN" DataSetColumn="ALMACEN" />
+              <Mapping SourceColumn="proveedor" DataSetColumn="proveedor" />
+              <Mapping SourceColumn="factura" DataSetColumn="factura" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -864,7 +866,7 @@ ORDER BY id_es</CommandText>
   <xs:element name="DSControl" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSControl" msprop:Generator_UserDSName="DSControl">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="INVE_articulos" msprop:Generator_TableClassName="INVE_articulosDataTable" msprop:Generator_TableVarName="tableINVE_articulos" msprop:Generator_RowChangedName="INVE_articulosRowChanged" msprop:Generator_TablePropName="INVE_articulos" msprop:Generator_RowDeletingName="INVE_articulosRowDeleting" msprop:Generator_RowChangingName="INVE_articulosRowChanging" msprop:Generator_RowEvHandlerName="INVE_articulosRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_articulosRowDeleted" msprop:Generator_RowClassName="INVE_articulosRow" msprop:Generator_UserTableName="INVE_articulos" msprop:Generator_RowEvArgName="INVE_articulosRowChangeEvent">
+        <xs:element name="INVE_articulos" msprop:Generator_TableClassName="INVE_articulosDataTable" msprop:Generator_TableVarName="tableINVE_articulos" msprop:Generator_TablePropName="INVE_articulos" msprop:Generator_RowDeletingName="INVE_articulosRowDeleting" msprop:Generator_RowChangingName="INVE_articulosRowChanging" msprop:Generator_RowEvHandlerName="INVE_articulosRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_articulosRowDeleted" msprop:Generator_UserTableName="INVE_articulos" msprop:Generator_RowChangedName="INVE_articulosRowChanged" msprop:Generator_RowEvArgName="INVE_articulosRowChangeEvent" msprop:Generator_RowClassName="INVE_articulosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_articulo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_articulo" msprop:Generator_ColumnPropNameInRow="id_articulo" msprop:Generator_ColumnPropNameInTable="id_articuloColumn" msprop:Generator_UserColumnName="id_articulo" type="xs:int" />
@@ -892,7 +894,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_entradas_x002F_salidas" msprop:Generator_TableClassName="_INVE_entradas_salidasDataTable" msprop:Generator_TableVarName="_tableINVE_entradas_salidas" msprop:Generator_RowChangedName="_INVE_entradas_salidasRowChanged" msprop:Generator_TablePropName="_INVE_entradas_salidas" msprop:Generator_RowDeletingName="_INVE_entradas_salidasRowDeleting" msprop:Generator_RowChangingName="_INVE_entradas_salidasRowChanging" msprop:Generator_RowEvHandlerName="_INVE_entradas_salidasRowChangeEventHandler" msprop:Generator_RowDeletedName="_INVE_entradas_salidasRowDeleted" msprop:Generator_RowClassName="_INVE_entradas_salidasRow" msprop:Generator_UserTableName="INVE_entradas/salidas" msprop:Generator_RowEvArgName="_INVE_entradas_salidasRowChangeEvent">
+        <xs:element name="INVE_entradas_x002F_salidas" msprop:Generator_TableClassName="_INVE_entradas_salidasDataTable" msprop:Generator_TableVarName="_tableINVE_entradas_salidas" msprop:Generator_TablePropName="_INVE_entradas_salidas" msprop:Generator_RowDeletingName="_INVE_entradas_salidasRowDeleting" msprop:Generator_RowChangingName="_INVE_entradas_salidasRowChanging" msprop:Generator_RowEvHandlerName="_INVE_entradas_salidasRowChangeEventHandler" msprop:Generator_RowDeletedName="_INVE_entradas_salidasRowDeleted" msprop:Generator_UserTableName="INVE_entradas/salidas" msprop:Generator_RowChangedName="_INVE_entradas_salidasRowChanged" msprop:Generator_RowEvArgName="_INVE_entradas_salidasRowChangeEvent" msprop:Generator_RowClassName="_INVE_entradas_salidasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_es" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_es" msprop:Generator_ColumnPropNameInRow="id_es" msprop:Generator_ColumnPropNameInTable="id_esColumn" msprop:Generator_UserColumnName="id_es" type="xs:int" />
@@ -938,7 +940,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_facturadetalle" msprop:Generator_TableClassName="INVE_facturadetalleDataTable" msprop:Generator_TableVarName="tableINVE_facturadetalle" msprop:Generator_RowChangedName="INVE_facturadetalleRowChanged" msprop:Generator_TablePropName="INVE_facturadetalle" msprop:Generator_RowDeletingName="INVE_facturadetalleRowDeleting" msprop:Generator_RowChangingName="INVE_facturadetalleRowChanging" msprop:Generator_RowEvHandlerName="INVE_facturadetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_facturadetalleRowDeleted" msprop:Generator_RowClassName="INVE_facturadetalleRow" msprop:Generator_UserTableName="INVE_facturadetalle" msprop:Generator_RowEvArgName="INVE_facturadetalleRowChangeEvent">
+        <xs:element name="INVE_facturadetalle" msprop:Generator_TableClassName="INVE_facturadetalleDataTable" msprop:Generator_TableVarName="tableINVE_facturadetalle" msprop:Generator_TablePropName="INVE_facturadetalle" msprop:Generator_RowDeletingName="INVE_facturadetalleRowDeleting" msprop:Generator_RowChangingName="INVE_facturadetalleRowChanging" msprop:Generator_RowEvHandlerName="INVE_facturadetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_facturadetalleRowDeleted" msprop:Generator_UserTableName="INVE_facturadetalle" msprop:Generator_RowChangedName="INVE_facturadetalleRowChanged" msprop:Generator_RowEvArgName="INVE_facturadetalleRowChangeEvent" msprop:Generator_RowClassName="INVE_facturadetalleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_fac_det" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_fac_det" msprop:Generator_ColumnPropNameInRow="id_fac_det" msprop:Generator_ColumnPropNameInTable="id_fac_detColumn" msprop:Generator_UserColumnName="id_fac_det" type="xs:int" />
@@ -956,7 +958,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_medida" msprop:Generator_TableClassName="INVE_medidaDataTable" msprop:Generator_TableVarName="tableINVE_medida" msprop:Generator_RowChangedName="INVE_medidaRowChanged" msprop:Generator_TablePropName="INVE_medida" msprop:Generator_RowDeletingName="INVE_medidaRowDeleting" msprop:Generator_RowChangingName="INVE_medidaRowChanging" msprop:Generator_RowEvHandlerName="INVE_medidaRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_medidaRowDeleted" msprop:Generator_RowClassName="INVE_medidaRow" msprop:Generator_UserTableName="INVE_medida" msprop:Generator_RowEvArgName="INVE_medidaRowChangeEvent">
+        <xs:element name="INVE_medida" msprop:Generator_TableClassName="INVE_medidaDataTable" msprop:Generator_TableVarName="tableINVE_medida" msprop:Generator_TablePropName="INVE_medida" msprop:Generator_RowDeletingName="INVE_medidaRowDeleting" msprop:Generator_RowChangingName="INVE_medidaRowChanging" msprop:Generator_RowEvHandlerName="INVE_medidaRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_medidaRowDeleted" msprop:Generator_UserTableName="INVE_medida" msprop:Generator_RowChangedName="INVE_medidaRowChanged" msprop:Generator_RowEvArgName="INVE_medidaRowChangeEvent" msprop:Generator_RowClassName="INVE_medidaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_unidad" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_unidad" msprop:Generator_ColumnPropNameInRow="id_unidad" msprop:Generator_ColumnPropNameInTable="id_unidadColumn" msprop:Generator_UserColumnName="id_unidad" type="xs:int" />
@@ -970,7 +972,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_almacenes" msprop:Generator_TableClassName="INVE_almacenesDataTable" msprop:Generator_TableVarName="tableINVE_almacenes" msprop:Generator_TablePropName="INVE_almacenes" msprop:Generator_RowDeletingName="INVE_almacenesRowDeleting" msprop:Generator_RowChangingName="INVE_almacenesRowChanging" msprop:Generator_RowEvHandlerName="INVE_almacenesRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_almacenesRowDeleted" msprop:Generator_UserTableName="INVE_almacenes" msprop:Generator_RowChangedName="INVE_almacenesRowChanged" msprop:Generator_RowEvArgName="INVE_almacenesRowChangeEvent" msprop:Generator_RowClassName="INVE_almacenesRow">
+        <xs:element name="INVE_almacenes" msprop:Generator_TableClassName="INVE_almacenesDataTable" msprop:Generator_TableVarName="tableINVE_almacenes" msprop:Generator_RowChangedName="INVE_almacenesRowChanged" msprop:Generator_TablePropName="INVE_almacenes" msprop:Generator_RowDeletingName="INVE_almacenesRowDeleting" msprop:Generator_RowChangingName="INVE_almacenesRowChanging" msprop:Generator_RowEvHandlerName="INVE_almacenesRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_almacenesRowDeleted" msprop:Generator_RowClassName="INVE_almacenesRow" msprop:Generator_UserTableName="INVE_almacenes" msprop:Generator_RowEvArgName="INVE_almacenesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_almacen" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_almacen" msprop:Generator_ColumnPropNameInRow="id_almacen" msprop:Generator_ColumnPropNameInTable="id_almacenColumn" msprop:Generator_UserColumnName="id_almacen" type="xs:int" />
@@ -984,7 +986,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_control" msprop:Generator_TableClassName="INVE_controlDataTable" msprop:Generator_TableVarName="tableINVE_control" msprop:Generator_TablePropName="INVE_control" msprop:Generator_RowDeletingName="INVE_controlRowDeleting" msprop:Generator_RowChangingName="INVE_controlRowChanging" msprop:Generator_RowEvHandlerName="INVE_controlRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_controlRowDeleted" msprop:Generator_UserTableName="INVE_control" msprop:Generator_RowChangedName="INVE_controlRowChanged" msprop:Generator_RowEvArgName="INVE_controlRowChangeEvent" msprop:Generator_RowClassName="INVE_controlRow">
+        <xs:element name="INVE_control" msprop:Generator_TableClassName="INVE_controlDataTable" msprop:Generator_TableVarName="tableINVE_control" msprop:Generator_RowChangedName="INVE_controlRowChanged" msprop:Generator_TablePropName="INVE_control" msprop:Generator_RowDeletingName="INVE_controlRowDeleting" msprop:Generator_RowChangingName="INVE_controlRowChanging" msprop:Generator_RowEvHandlerName="INVE_controlRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_controlRowDeleted" msprop:Generator_RowClassName="INVE_controlRow" msprop:Generator_UserTableName="INVE_control" msprop:Generator_RowEvArgName="INVE_controlRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="clave" msprop:Generator_ColumnVarNameInTable="columnclave" msprop:Generator_ColumnPropNameInRow="clave" msprop:Generator_ColumnPropNameInTable="claveColumn" msprop:Generator_UserColumnName="clave" minOccurs="0">
@@ -1027,7 +1029,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_INVE_acumulados" msprop:Generator_TableClassName="Vw_INVE_acumuladosDataTable" msprop:Generator_TableVarName="tableVw_INVE_acumulados" msprop:Generator_TablePropName="Vw_INVE_acumulados" msprop:Generator_RowDeletingName="Vw_INVE_acumuladosRowDeleting" msprop:Generator_RowChangingName="Vw_INVE_acumuladosRowChanging" msprop:Generator_RowEvHandlerName="Vw_INVE_acumuladosRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_INVE_acumuladosRowDeleted" msprop:Generator_UserTableName="Vw_INVE_acumulados" msprop:Generator_RowChangedName="Vw_INVE_acumuladosRowChanged" msprop:Generator_RowEvArgName="Vw_INVE_acumuladosRowChangeEvent" msprop:Generator_RowClassName="Vw_INVE_acumuladosRow">
+        <xs:element name="Vw_INVE_acumulados" msprop:Generator_TableClassName="Vw_INVE_acumuladosDataTable" msprop:Generator_TableVarName="tableVw_INVE_acumulados" msprop:Generator_RowChangedName="Vw_INVE_acumuladosRowChanged" msprop:Generator_TablePropName="Vw_INVE_acumulados" msprop:Generator_RowDeletingName="Vw_INVE_acumuladosRowDeleting" msprop:Generator_RowChangingName="Vw_INVE_acumuladosRowChanging" msprop:Generator_RowEvHandlerName="Vw_INVE_acumuladosRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_INVE_acumuladosRowDeleted" msprop:Generator_RowClassName="Vw_INVE_acumuladosRow" msprop:Generator_UserTableName="Vw_INVE_acumulados" msprop:Generator_RowEvArgName="Vw_INVE_acumuladosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="clave" msprop:Generator_ColumnVarNameInTable="columnclave" msprop:Generator_ColumnPropNameInRow="clave" msprop:Generator_ColumnPropNameInTable="claveColumn" msprop:Generator_UserColumnName="clave" minOccurs="0">
@@ -1064,7 +1066,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_salidadetalle" msprop:Generator_TableClassName="INVE_salidadetalleDataTable" msprop:Generator_TableVarName="tableINVE_salidadetalle" msprop:Generator_TablePropName="INVE_salidadetalle" msprop:Generator_RowDeletingName="INVE_salidadetalleRowDeleting" msprop:Generator_RowChangingName="INVE_salidadetalleRowChanging" msprop:Generator_RowEvHandlerName="INVE_salidadetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_salidadetalleRowDeleted" msprop:Generator_UserTableName="INVE_salidadetalle" msprop:Generator_RowChangedName="INVE_salidadetalleRowChanged" msprop:Generator_RowEvArgName="INVE_salidadetalleRowChangeEvent" msprop:Generator_RowClassName="INVE_salidadetalleRow">
+        <xs:element name="INVE_salidadetalle" msprop:Generator_TableClassName="INVE_salidadetalleDataTable" msprop:Generator_TableVarName="tableINVE_salidadetalle" msprop:Generator_RowChangedName="INVE_salidadetalleRowChanged" msprop:Generator_TablePropName="INVE_salidadetalle" msprop:Generator_RowDeletingName="INVE_salidadetalleRowDeleting" msprop:Generator_RowChangingName="INVE_salidadetalleRowChanging" msprop:Generator_RowEvHandlerName="INVE_salidadetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="INVE_salidadetalleRowDeleted" msprop:Generator_RowClassName="INVE_salidadetalleRow" msprop:Generator_UserTableName="INVE_salidadetalle" msprop:Generator_RowEvArgName="INVE_salidadetalleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_salidadetalle" msprop:Generator_ColumnVarNameInTable="columnid_salidadetalle" msprop:Generator_ColumnPropNameInRow="id_salidadetalle" msprop:Generator_ColumnPropNameInTable="id_salidadetalleColumn" msprop:Generator_UserColumnName="id_salidadetalle" type="xs:int" />
@@ -1074,7 +1076,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INVE_entradas_x002F_salidas1" msprop:Generator_TableClassName="_INVE_entradas_salidas1DataTable" msprop:Generator_TableVarName="_tableINVE_entradas_salidas1" msprop:Generator_TablePropName="_INVE_entradas_salidas1" msprop:Generator_RowDeletingName="_INVE_entradas_salidas1RowDeleting" msprop:Generator_RowChangingName="_INVE_entradas_salidas1RowChanging" msprop:Generator_RowEvHandlerName="_INVE_entradas_salidas1RowChangeEventHandler" msprop:Generator_RowDeletedName="_INVE_entradas_salidas1RowDeleted" msprop:Generator_UserTableName="INVE_entradas/salidas1" msprop:Generator_RowChangedName="_INVE_entradas_salidas1RowChanged" msprop:Generator_RowEvArgName="_INVE_entradas_salidas1RowChangeEvent" msprop:Generator_RowClassName="_INVE_entradas_salidas1Row">
+        <xs:element name="INVE_entradas_x002F_salidas1" msprop:Generator_TableClassName="_INVE_entradas_salidas1DataTable" msprop:Generator_TableVarName="_tableINVE_entradas_salidas1" msprop:Generator_RowChangedName="_INVE_entradas_salidas1RowChanged" msprop:Generator_TablePropName="_INVE_entradas_salidas1" msprop:Generator_RowDeletingName="_INVE_entradas_salidas1RowDeleting" msprop:Generator_RowChangingName="_INVE_entradas_salidas1RowChanging" msprop:Generator_RowEvHandlerName="_INVE_entradas_salidas1RowChangeEventHandler" msprop:Generator_RowDeletedName="_INVE_entradas_salidas1RowDeleted" msprop:Generator_RowClassName="_INVE_entradas_salidas1Row" msprop:Generator_UserTableName="INVE_entradas/salidas1" msprop:Generator_RowEvArgName="_INVE_entradas_salidas1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_es" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_es" msprop:Generator_ColumnPropNameInRow="id_es" msprop:Generator_ColumnPropNameInTable="id_esColumn" msprop:Generator_UserColumnName="id_es" type="xs:int" />
@@ -1105,7 +1107,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_INVE_existencia" msprop:Generator_TableClassName="VW_INVE_existenciaDataTable" msprop:Generator_TableVarName="tableVW_INVE_existencia" msprop:Generator_RowChangedName="VW_INVE_existenciaRowChanged" msprop:Generator_TablePropName="VW_INVE_existencia" msprop:Generator_RowDeletingName="VW_INVE_existenciaRowDeleting" msprop:Generator_RowChangingName="VW_INVE_existenciaRowChanging" msprop:Generator_RowEvHandlerName="VW_INVE_existenciaRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_INVE_existenciaRowDeleted" msprop:Generator_RowClassName="VW_INVE_existenciaRow" msprop:Generator_UserTableName="VW_INVE_existencia" msprop:Generator_RowEvArgName="VW_INVE_existenciaRowChangeEvent">
+        <xs:element name="VW_INVE_existencia" msprop:Generator_TableClassName="VW_INVE_existenciaDataTable" msprop:Generator_TableVarName="tableVW_INVE_existencia" msprop:Generator_TablePropName="VW_INVE_existencia" msprop:Generator_RowDeletingName="VW_INVE_existenciaRowDeleting" msprop:Generator_RowChangingName="VW_INVE_existenciaRowChanging" msprop:Generator_RowEvHandlerName="VW_INVE_existenciaRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_INVE_existenciaRowDeleted" msprop:Generator_UserTableName="VW_INVE_existencia" msprop:Generator_RowChangedName="VW_INVE_existenciaRowChanged" msprop:Generator_RowEvArgName="VW_INVE_existenciaRowChangeEvent" msprop:Generator_RowClassName="VW_INVE_existenciaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_es" msprop:Generator_ColumnVarNameInTable="columnid_es" msprop:Generator_ColumnPropNameInRow="id_es" msprop:Generator_ColumnPropNameInTable="id_esColumn" msprop:Generator_UserColumnName="id_es" type="xs:int" />
@@ -1114,7 +1116,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_INV_ALTAS" msprop:Generator_TableClassName="VW_INV_ALTASDataTable" msprop:Generator_TableVarName="tableVW_INV_ALTAS" msprop:Generator_RowChangedName="VW_INV_ALTASRowChanged" msprop:Generator_TablePropName="VW_INV_ALTAS" msprop:Generator_RowDeletingName="VW_INV_ALTASRowDeleting" msprop:Generator_RowChangingName="VW_INV_ALTASRowChanging" msprop:Generator_RowEvHandlerName="VW_INV_ALTASRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_INV_ALTASRowDeleted" msprop:Generator_RowClassName="VW_INV_ALTASRow" msprop:Generator_UserTableName="VW_INV_ALTAS" msprop:Generator_RowEvArgName="VW_INV_ALTASRowChangeEvent">
+        <xs:element name="VW_INV_ALTAS" msprop:Generator_TableClassName="VW_INV_ALTASDataTable" msprop:Generator_TableVarName="tableVW_INV_ALTAS" msprop:Generator_TablePropName="VW_INV_ALTAS" msprop:Generator_RowDeletingName="VW_INV_ALTASRowDeleting" msprop:Generator_RowChangingName="VW_INV_ALTASRowChanging" msprop:Generator_RowEvHandlerName="VW_INV_ALTASRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_INV_ALTASRowDeleted" msprop:Generator_UserTableName="VW_INV_ALTAS" msprop:Generator_RowChangedName="VW_INV_ALTASRowChanged" msprop:Generator_RowEvArgName="VW_INV_ALTASRowChangeEvent" msprop:Generator_RowClassName="VW_INV_ALTASRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="articulo" msprop:Generator_ColumnVarNameInTable="columnarticulo" msprop:Generator_ColumnPropNameInRow="articulo" msprop:Generator_ColumnPropNameInTable="articuloColumn" msprop:Generator_UserColumnName="articulo">
@@ -1135,10 +1137,24 @@ ORDER BY id_es</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="proveedor" msprop:Generator_ColumnVarNameInTable="columnproveedor" msprop:Generator_ColumnPropNameInRow="proveedor" msprop:Generator_ColumnPropNameInTable="proveedorColumn" msprop:Generator_UserColumnName="proveedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="factura" msprop:Generator_ColumnVarNameInTable="columnfactura" msprop:Generator_ColumnPropNameInRow="factura" msprop:Generator_ColumnPropNameInTable="facturaColumn" msprop:Generator_UserColumnName="factura" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_inv_salidas" msprop:Generator_TableClassName="vw_inv_salidasDataTable" msprop:Generator_TableVarName="tablevw_inv_salidas" msprop:Generator_RowChangedName="vw_inv_salidasRowChanged" msprop:Generator_TablePropName="vw_inv_salidas" msprop:Generator_RowDeletingName="vw_inv_salidasRowDeleting" msprop:Generator_RowChangingName="vw_inv_salidasRowChanging" msprop:Generator_RowEvHandlerName="vw_inv_salidasRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_inv_salidasRowDeleted" msprop:Generator_RowClassName="vw_inv_salidasRow" msprop:Generator_UserTableName="vw_inv_salidas" msprop:Generator_RowEvArgName="vw_inv_salidasRowChangeEvent">
+        <xs:element name="vw_inv_salidas" msprop:Generator_TableClassName="vw_inv_salidasDataTable" msprop:Generator_TableVarName="tablevw_inv_salidas" msprop:Generator_TablePropName="vw_inv_salidas" msprop:Generator_RowDeletingName="vw_inv_salidasRowDeleting" msprop:Generator_RowChangingName="vw_inv_salidasRowChanging" msprop:Generator_RowEvHandlerName="vw_inv_salidasRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_inv_salidasRowDeleted" msprop:Generator_UserTableName="vw_inv_salidas" msprop:Generator_RowChangedName="vw_inv_salidasRowChanged" msprop:Generator_RowEvArgName="vw_inv_salidasRowChangeEvent" msprop:Generator_RowClassName="vw_inv_salidasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="articulo" msprop:Generator_ColumnVarNameInTable="columnarticulo" msprop:Generator_ColumnPropNameInRow="articulo" msprop:Generator_ColumnPropNameInTable="articuloColumn" msprop:Generator_UserColumnName="articulo">
@@ -1171,7 +1187,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_inve_salidadetalle" msprop:Generator_TableClassName="vw_inve_salidadetalleDataTable" msprop:Generator_TableVarName="tablevw_inve_salidadetalle" msprop:Generator_RowChangedName="vw_inve_salidadetalleRowChanged" msprop:Generator_TablePropName="vw_inve_salidadetalle" msprop:Generator_RowDeletingName="vw_inve_salidadetalleRowDeleting" msprop:Generator_RowChangingName="vw_inve_salidadetalleRowChanging" msprop:Generator_RowEvHandlerName="vw_inve_salidadetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_inve_salidadetalleRowDeleted" msprop:Generator_RowClassName="vw_inve_salidadetalleRow" msprop:Generator_UserTableName="vw_inve_salidadetalle" msprop:Generator_RowEvArgName="vw_inve_salidadetalleRowChangeEvent">
+        <xs:element name="vw_inve_salidadetalle" msprop:Generator_TableClassName="vw_inve_salidadetalleDataTable" msprop:Generator_TableVarName="tablevw_inve_salidadetalle" msprop:Generator_TablePropName="vw_inve_salidadetalle" msprop:Generator_RowDeletingName="vw_inve_salidadetalleRowDeleting" msprop:Generator_RowChangingName="vw_inve_salidadetalleRowChanging" msprop:Generator_RowEvHandlerName="vw_inve_salidadetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_inve_salidadetalleRowDeleted" msprop:Generator_UserTableName="vw_inve_salidadetalle" msprop:Generator_RowChangedName="vw_inve_salidadetalleRowChanged" msprop:Generator_RowEvArgName="vw_inve_salidadetalleRowChangeEvent" msprop:Generator_RowClassName="vw_inve_salidadetalleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="descr" msprop:Generator_ColumnVarNameInTable="columndescr" msprop:Generator_ColumnPropNameInRow="descr" msprop:Generator_ColumnPropNameInTable="descrColumn" msprop:Generator_UserColumnName="descr">
@@ -1202,7 +1218,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_inv_articulo_existencias" msprop:Generator_TableClassName="vw_inv_articulo_existenciasDataTable" msprop:Generator_TableVarName="tablevw_inv_articulo_existencias" msprop:Generator_RowChangedName="vw_inv_articulo_existenciasRowChanged" msprop:Generator_TablePropName="vw_inv_articulo_existencias" msprop:Generator_RowDeletingName="vw_inv_articulo_existenciasRowDeleting" msprop:Generator_RowChangingName="vw_inv_articulo_existenciasRowChanging" msprop:Generator_RowEvHandlerName="vw_inv_articulo_existenciasRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_inv_articulo_existenciasRowDeleted" msprop:Generator_RowClassName="vw_inv_articulo_existenciasRow" msprop:Generator_UserTableName="vw_inv_articulo_existencias" msprop:Generator_RowEvArgName="vw_inv_articulo_existenciasRowChangeEvent">
+        <xs:element name="vw_inv_articulo_existencias" msprop:Generator_TableClassName="vw_inv_articulo_existenciasDataTable" msprop:Generator_TableVarName="tablevw_inv_articulo_existencias" msprop:Generator_TablePropName="vw_inv_articulo_existencias" msprop:Generator_RowDeletingName="vw_inv_articulo_existenciasRowDeleting" msprop:Generator_RowChangingName="vw_inv_articulo_existenciasRowChanging" msprop:Generator_RowEvHandlerName="vw_inv_articulo_existenciasRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_inv_articulo_existenciasRowDeleted" msprop:Generator_UserTableName="vw_inv_articulo_existencias" msprop:Generator_RowChangedName="vw_inv_articulo_existenciasRowChanged" msprop:Generator_RowEvArgName="vw_inv_articulo_existenciasRowChangeEvent" msprop:Generator_RowClassName="vw_inv_articulo_existenciasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="producto" msprop:Generator_ColumnVarNameInTable="columnproducto" msprop:Generator_ColumnPropNameInRow="producto" msprop:Generator_ColumnPropNameInTable="productoColumn" msprop:Generator_UserColumnName="producto">
@@ -1223,7 +1239,7 @@ ORDER BY id_es</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ACUMULADOS" msprop:Generator_TableClassName="ACUMULADOSDataTable" msprop:Generator_TableVarName="tableACUMULADOS" msprop:Generator_RowChangedName="ACUMULADOSRowChanged" msprop:Generator_TablePropName="ACUMULADOS" msprop:Generator_RowDeletingName="ACUMULADOSRowDeleting" msprop:Generator_RowChangingName="ACUMULADOSRowChanging" msprop:Generator_RowEvHandlerName="ACUMULADOSRowChangeEventHandler" msprop:Generator_RowDeletedName="ACUMULADOSRowDeleted" msprop:Generator_RowClassName="ACUMULADOSRow" msprop:Generator_UserTableName="ACUMULADOS" msprop:Generator_RowEvArgName="ACUMULADOSRowChangeEvent">
+        <xs:element name="ACUMULADOS" msprop:Generator_TableClassName="ACUMULADOSDataTable" msprop:Generator_TableVarName="tableACUMULADOS" msprop:Generator_TablePropName="ACUMULADOS" msprop:Generator_RowDeletingName="ACUMULADOSRowDeleting" msprop:Generator_RowChangingName="ACUMULADOSRowChanging" msprop:Generator_RowEvHandlerName="ACUMULADOSRowChangeEventHandler" msprop:Generator_RowDeletedName="ACUMULADOSRowDeleted" msprop:Generator_UserTableName="ACUMULADOS" msprop:Generator_RowChangedName="ACUMULADOSRowChanged" msprop:Generator_RowEvArgName="ACUMULADOSRowChangeEvent" msprop:Generator_RowClassName="ACUMULADOSRow">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
